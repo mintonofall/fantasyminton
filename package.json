@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mintonofall/fantasyminton.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mintonofall/fantasyminton/issues"
+  },
+  "homepage": "https://github.com/mintonofall/fantasyminton#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^4.12.0"
+  }
+}

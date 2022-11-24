@@ -15,10 +15,16 @@ const port = 4000;
 
 const app = express();
 
-app.get("/", (req, res) => { 
-    
+app.get("/", (req, res) => {
+
+  res.json(players);
+  
 })
 
-app.listen(port, () => {
-    console.log(`listen at ${port}`);
+MongoClient.connect(uri, function(에러, client){
+  if (에러) return console.log(에러)
+  app.listen(port, function() {
+    console.log(`listening on ${port}`)
+  })
 })
+

@@ -1,13 +1,15 @@
 const express = require('express');
 
+var cors = require('cors');
+
+var db;
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://treebird1982:ZnPh7eLOMEWgpnvm@cluster0.vqq8hhk.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
+  const collection = client.db("fantasyminton").collection("players");
   // perform actions on the collection object
-  client.close();
 });
 
 
@@ -15,9 +17,15 @@ const port = 4000;
 
 const app = express();
 
-app.get("/", (req, res) => {
+app.use(express.json());
+app.use(cors());
 
-  res.json(players);
+app.get("/", (req, res) => {
+  var db;
+  db = client.db('fantasyminton');
+  db.collection('players').find().toArray(function(err, data) {
+    return res.json(data);
+  })
   
 })
 

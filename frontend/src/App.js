@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+
+  let [players, setPlayers] = useState();
+  const [isLoading, setLoad] = useState(false);
+  const getPlayer = async () => {
+      await axios('http://localhost:4000/')
+      .then((players) => {
+        setPlayers(players.data);
+      })
+  };
+  if(isLoading){
+  }
+  else{
+    getPlayer();
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reladsfoadaaa. haha
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn aaa React
-        </a>
-      </header>
+      {
+        players.map((player)=> {
+          return(
+          <p>{player.name}</p>
+          )
+        })
+      }
     </div>
+
   );
 }
 

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 .App-logo {
@@ -7,6 +8,72 @@
   pointer-events: none;
 }
 
+.playerCard {
+  display: flex;
+  height: 15%;
+}
+
+.teamCard {
+  width : 98%;
+  height: 25%;
+  border: 2px solid;
+  border-radius: 5px;
+  background-color: thistle;
+}
+
+.playerName {
+  padding-left: 5px;
+}
+
+.teamPlayers {
+  text-align: left;
+  font-size: small;
+  margin: 0px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.playerContry {
+  padding-left: 5px;
+}
+
+.playerList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.indexCard {
+  display: flex;
+  width : 33%;
+  height : 33vh;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.teamList {
+  width : 33%;
+}
+
+.MS {
+  background-color: #61dafb;
+}
+
+.WS {
+  background-color: pink;
+}
+
+.MD {
+  background-color:cornflowerblue;
+}
+.WD {
+  background-color:violet ;
+}
+
+.XD {
+  background-color:cadetblue;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

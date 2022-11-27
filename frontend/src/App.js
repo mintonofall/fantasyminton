@@ -4,30 +4,33 @@ import axios from 'axios';
 
 function App() {
 
-  let [players, setPlayers] = useState();
-  const [isLoading, setLoad] = useState(false);
-  const getPlayer = async () => {
-      await axios('http://localhost:4000/')
-      .then((players) => {
-        setPlayers(players.data);
-      })
-  };
-  if(isLoading){
-  }
-  else{
-    getPlayer();
-  }
+  const [players, setPlayers] = useState([]);
+  useEffect(() => {
+    axios('http://localhost:4000')
+    .then((res) => {
+      console.log(res);
+      setPlayers(res.data);
+    });
+  },[]);
 
+  useEffect(() => {
+      console.log(players);
+  },[players]);
 
   return (
     <div className="App">
       {
-        players.map((player)=> {
+        players.map((a) => {
           return(
-          <p>{player.name}</p>
+            <div className='playerCard'>
+              <div>{a.name}</div>
+              <div>{a.contry}</div>
+            </div>
           )
         })
       }
+      
+
     </div>
 
   );

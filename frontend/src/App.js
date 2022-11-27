@@ -9,6 +9,7 @@ function App() {
   const [menDoubleList, setMenDoubleList] = useState([]);
   const [womenDoubleList, setwomenDoubleList] = useState([]);
   const [mixDoubleList, setMixDoubleList] = useState([]);
+  const [teamOnePlayers, setTeamOnePlayers] = setState([]);
 
   useEffect(() => {
     axios("http://localhost:4000").then((res) => {
@@ -36,7 +37,7 @@ function App() {
       <div className="teamList">
         <div className="teamCard teamOne">
           <h5 className="teamName">방대표팀</h5>
-          <h6 className="players"> MS : <img src="/contryFlagIcon/DK.png" /> 악셀센</h6>
+          <p> teamOnePlayers[0] </p>
         </div>
         <div className="teamCard teamTwo">
           {/* <h5 className="teamName">모팀장팀</h5>
@@ -68,12 +69,13 @@ function App() {
       </div>
       <div className="playerList">
         <div className="indexCard MS">
+                <h3> 남자 단식 </h3>
           {menSingleList.map((a) => {
             return (
               <div className="playerCard">
-                <div className="playerIndex">{a.index}</div>
-                <div className="playerContry">{a.contry}</div>
+                <div className="playerContry"><img src={'contryFlagIcon/' + a.contry+ '.png'} width = "20px" /></div>
                 <div className="playerName">{a.name}</div>
+                <div className="playerPoint"> {a.point} </div>
               </div>
             );
           })}
@@ -92,7 +94,7 @@ function App() {
         <div className="indexCard MD">
           {menDoubleList.map((a) => {
             return (
-              <div className="playerCard">
+              <div className="playerCard" key={a.id}>
                 <div className="playerIndex">{a.index}</div>
                 <div className="playerContry">{a.contry}</div>
                 <div className="playerName">{a.name}</div>

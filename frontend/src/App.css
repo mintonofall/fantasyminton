@@ -8,6 +8,14 @@
   pointer-events: none;
 }
 
+.playerPoint{
+  padding-left: 5px;
+}
+
+.players {
+  font-size: 15px;
+}
+
 .playerCard {
   display: flex;
   height: 15%;
